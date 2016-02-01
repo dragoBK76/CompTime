@@ -1,4 +1,21 @@
 <div class="container">
-  <h1>something</h1>
-  <%= link_to "sign out", destroy_user_session_path, :method => 'delete' %>
+  <div class="row">
+    <%= content_tag(:h1, "Activities for: #{current_user.fullname}") %>
+  </div>
+  <div class="row">
+  <table class="table table-striped">
+    <tr>
+      <td>Hours Worked</td>
+      <td>Experience Name</td>
+      <td>Experience Date</td>
+    </tr>
+    <% @activities.each do |a| %>
+      <tr>
+        <td><%= content_tag(:p, a.hours_worked) %></td>
+        <td><%= content_tag(:p, a.name) %></td>
+        <td><%= content_tag(:p, a.date) %></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
 </div>

@@ -12,11 +12,6 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <% if user_signed_in? %>
-      <%= render 'layouts/signedin' %>
-    <% else %>
-      <%= render 'layouts/signedout' %>
-    <% end %>
- 
+    <%= user_signed_in? ? (render 'layouts/signedin') : (render 'layouts/signedout') %>
   </div><!-- /.container-fluid -->
 </nav>

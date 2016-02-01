@@ -1,17 +1,17 @@
 class ActivitiesController < ApplicationController
 
   def index
-    @user = current_user
-    @activities = Activity.all
+    @user = User.find(params[:user_id])
+    @activities = @user.activities.all
   end
 
   def new
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @activity = @user.activities.new
   end
 
   def create
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @activity = @user.activities.new(activity_params)
 
     if @activity.save
