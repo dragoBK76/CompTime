@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @activities = @user.activities.all
+    @activities = @user.activities.all.order('id DESC')
   end
 
   def new

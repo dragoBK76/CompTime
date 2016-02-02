@@ -16,6 +16,11 @@
         <td><%= content_tag(:p, a.date) %></td>
       </tr>
     <% end %>
+    <tr>
+      <td colspan="3">
+       <%= @activities.sum(:hours_worked) %> Total Hours
+      </td>
+    </tr>
   </table>
   </div>
 </div>
