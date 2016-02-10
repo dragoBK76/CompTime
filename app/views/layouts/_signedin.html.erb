@@ -4,7 +4,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.fullname %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Add Activity", new_user_activity_path(current_user.id) %></li>
-            <li><a href="#">View Activities</a></li>
+            <li><%= link_to "View Activities", user_activities_path(current_user.id) %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></li>
           </ul>
