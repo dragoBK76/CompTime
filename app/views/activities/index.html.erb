@@ -1,4 +1,7 @@
 <div class="container">
+<% if !flash.empty? %>
+    <%= content_tag(:div, content_tag(:div, flash[:notice], class: ['alert', 'alert-danger']), class: 'row') %>
+<% end %>
   <div class="row">
     <%= content_tag(:h1, "Activities for: #{current_user.fullname}") %>
   </div>
@@ -8,12 +11,14 @@
       <td>Hours Worked</td>
       <td>Experience Name</td>
       <td>Experience Date</td>
+      <!-- <td>Approved?</td> -->
     </tr>
     <% @activities.each do |a| %>
       <tr>
         <td><%= content_tag(:p, a.hours_worked) %></td>
         <td><%= content_tag(:p, a.name) %></td>
         <td><%= content_tag(:p, a.date) %></td>
+        <!-- <td><p><%= a.approved ? "Yes" : "No" %></p></td> -->
       </tr>
     <% end %>
     <tr>
