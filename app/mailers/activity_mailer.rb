@@ -1,0 +1,2 @@
+class ActivityMailer < ApplicationMailer
+end
