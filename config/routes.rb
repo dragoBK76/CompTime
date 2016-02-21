@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :activities
+
+  resources :admin, only: [:index]
   end
  end

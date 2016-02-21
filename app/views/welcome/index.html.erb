@@ -1,3 +1,8 @@
 <div class="container">
-  <h1><%= user_signed_in? ? "Welcome back #{current_user.fullname}" : "Please Sign In" %></h1>
+<% if !flash.empty? %>
+  <% content_tag(:div, content_tag(:div, flash[:notice], class: ['alert', 'alert-danger', 'fa', 'fa-frown-o']),class: 'row') %>
+<% end %>
+  <div class="row">
+    <%= user_signed_in? ? (render "welcome/options") : (render "welcome/loggedout") %>
+  </div>
 </div>

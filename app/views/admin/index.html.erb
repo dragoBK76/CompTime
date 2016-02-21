@@ -1,0 +1,54 @@
+<div class="container">
+  <% if !current_user.admin? %>
+    <p>Not an Admin</p>
+  <% else %>
+  <div class="row">
+    <div class="alert alert-success">You're an admin</div>
+      <table class="table table-striped table-bordered table-responsive">
+        <tr>
+          <td><strong>Name</strong></td>
+          <td><strong>email</strong></td>
+          <td><strong>Activity Count</strong></td>
+          <td><strong>User ID</strong></td>
+        </tr>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.fullname %></td>
+          <td><%= user.email %></td>
+          <td><%= user.activities.count %></td>
+          <td><%= user.id %></td>
+        </tr>
+    <% end %>
+      </table>
+    </div>
+    <div class="row">
+      <hr>
+    </div>
+      <% @users.each do |user| %>
+      <div class="row">
+        <table class="table table-striped table-bordered table-responsive">
+          <tr>
+            <td colspan="3">
+              <h4><%= user.fullname %></h4>
+            </td>
+          </tr>
+          <tr>
+            <td width="34%"><h4>Description</h4></td>
+            <td width="33%"><h4>Date</h4></td>
+            <td width="33%"><h4>Hours worked</h4></td>
+          </tr>
+        <% user.activities.each do |item| %>
+          <tr>
+            <td width="34%"><%= item.name %></td>
+            <td width="33%"><%= item.date %></td>
+            <td width="33%"><%= item.hours_worked %></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+      <div class="row">
+        <hr>
+      </div>
+      <% end %>
+  <% end %>
+</div>
