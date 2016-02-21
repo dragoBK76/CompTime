@@ -3,7 +3,8 @@
   <%= content_tag(:div,content_tag(:div, flash[:notice], class: ['fa', 'fa-frown-o'], width: '100%'), class: ['row', 'alert', 'alert-danger'], align: 'center') %>
 <% end %>
   <div class="row">
-    <%= content_tag(:h1, "Activities for: #{current_user.fullname}") %>
+    <%= content_tag(:h1, "Activities for: #{current_user.fullname}") %><br>
+    <%= link_to '+ Add an Activity', new_user_activity_path(current_user.id) %>
   </div>
   <div class="row">
   <table class="table table-striped">
