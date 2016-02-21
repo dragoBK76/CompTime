@@ -1,6 +1,6 @@
 <div class="container">
 <% if !flash.empty? %>
-  <% content_tag(:div, content_tag(:div, flash[:notice], class: ['alert', 'alert-danger']),class: 'row') %>
+  <% content_tag(:div, content_tag(:div, flash[:notice], class: ['alert', 'alert-danger', 'fa', 'fa-frown-o']),class: 'row') %>
 <% end %>
   <div class="row">
     <%= user_signed_in? ? (render "welcome/options") : (render "welcome/loggedout") %>
