@@ -1,0 +1,7 @@
+<div class="container">
+  <%= content_tag(:div, content_tag(:h2,"Welcome back #{current_user.fullname}"), class: 'row') %>
+  <div class="row">
+    <%= link_to "View all of my activities", user_activities_path(current_user.id) %><br>
+    <%= link_to "Add an activity", new_user_activity_path(current_user.id) %>
+  </div>
+</div>

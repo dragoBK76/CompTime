@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  <%= content_tag(:h1, current_user.fullname) %>
+</div>
+<div class="row">
+    <div class="col-md-6">
+      <%= simple_form_for [@user, @activity] do |f| %>
+        <%= f.input :name, :label => "Experience Name" %>
+        <%= f.input :date, :label => "Experience Date" %>
+        <%= f.input :hours_worked %>
+        <%= f.input :notes %>
+        <%= f.input :approved, as: :boolean %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
