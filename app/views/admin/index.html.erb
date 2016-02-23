@@ -29,17 +29,24 @@
             <td colspan="3">
               <h4><%= user.fullname %></h4>
             </td>
+            <td width="25%">Approved Hours <%= user.activities.where(:approved => true).sum(:hours_worked) %></td>
           </tr>
           <tr>
-            <td width="34%"><h4>Description</h4></td>
-            <td width="33%"><h4>Date</h4></td>
-            <td width="33%"><h4>Hours worked</h4></td>
+            <td width="25%"><h4>Description</h4></td>
+            <td width="25%"><h4>Date</h4></td>
+            <td width="25%"><h4>Hours worked</h4></td>
+            <td width="25%"><h4>Edit</h4></td>
           </tr>
-        <% user.activities.each do |item| %>
+        <% user.activities.order('id DESC').each do |item| %>
           <tr>
-            <td width="34%"><%= item.name %></td>
-            <td width="33%"><%= item.date %></td>
-            <td width="33%"><%= item.hours_worked %></td>
+            <td width="25%"><%= item.name %></td>
+            <td width="25%"><%= item.date %></td>
+            <td width="25%"><%= item.hours_worked %></td>
+            <% if item.approved? %>
+              <td width="25%">Approved / <%= link_to 'edit', edit_user_activity_path(user.id, item.id) %></td>
+            <% else %>
+              <td width="25%"><%= link_to 'Approve', edit_user_activity_path(user.id, item.id) %></td>
+            <% end %>
           </tr>
         <% end %>
         </table>

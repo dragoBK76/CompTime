@@ -2,6 +2,6 @@ class AdminController < ApplicationController
 
   def index
     @users = User.all
-    # @activities = @users.activities.all
+    # @activities = Activity.all
   end
 end

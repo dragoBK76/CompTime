@@ -4,7 +4,9 @@ class ActivitiesController < ApplicationController
     @user = User.find(params[:user_id])
     @activities = @user.activities.all.order('id DESC')
 
-    if @user.id != current_user.id
+    if @user.admin = true
+      redirect_to user_admin_index_path(current_user.id)
+    elsif @user.id != current_user.id
       flash[:notice] = "You can't view that."
       redirect_to user_activities_path(current_user.id)
     end
