@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-  <%= content_tag(:h1, current_user.fullname) %>
+  <% if current_user.admin? %>
+  <%= content_tag(:h3, current_user.fullname + " is editing activity for:") %>
+  <% end %>
+  <%= content_tag(:h1, @user.fullname) %>
 </div>
 <div class="row">
     <div class="col-md-6">
