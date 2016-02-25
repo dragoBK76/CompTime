@@ -12,19 +12,20 @@
       <td>Hours Worked</td>
       <td>Experience Name</td>
       <td>Experience Date</td>
-      <!-- <td>Approved?</td> -->
+      <td>Approved?</td>
     </tr>
     <% @activities.each do |a| %>
       <tr>
         <td><%= content_tag(:p, a.hours_worked) %></td>
         <td><%= content_tag(:p, a.name) %></td>
         <td><%= content_tag(:p, a.date) %></td>
-        <!-- <td><p><%= a.approved ? "Yes" : "No" %></p></td> -->
+        <td><p><%= a.approved? ? "Yes" : "No" %></p></td>
       </tr>
     <% end %>
     <tr>
-      <td colspan="3">
-       <%= @activities.sum(:hours_worked) %> Total Hours
+      <td colspan="4">
+       <%= @activities.sum(:hours_worked) %> Total Hours<br>
+       <%= @activities.where(:approved => true).sum(:hours_worked) %> Hours Approved
       </td>
     </tr>
   </table>
