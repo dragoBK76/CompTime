@@ -9,7 +9,9 @@
         <%= f.input :date, :label => "Experience Date" %>
         <%= f.input :hours_worked %>
         <%= f.input :notes %>
+        <% if current_user.admin? %>
         <%= f.input :approved, as: :boolean, value: false %>
+        <% end %>
         <%= f.button :submit %>
       <% end %>
     </div>
