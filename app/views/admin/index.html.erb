@@ -4,17 +4,19 @@
   <% else %>
   <div class="row">
     <div class="alert alert-success">You're an admin</div>
-      <table class="table table-striped table-bordered table-responsive">
+      <table width="100%" class="table table-striped table-bordered table-responsive">
         <tr>
           <td><strong>Name</strong></td>
           <td><strong>Activity Count</strong></td>
           <td><strong>User ID</strong></td>
+          <td><strong>Approved Hours</strong></td>
         </tr>
     <% @users.each do |user| %>
         <tr>
           <td><%= user.fullname %></td>
           <td><%= user.activities.count %></td>
           <td><%= user.id %></td>
+          <td><%= user.activities.where(:approved => true).sum(:hours_worked) %></td>
         </tr>
     <% end %>
       </table>
