@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
     # else
     #   redirect_to user_activities_path(current_user.id)
     end
-    rescue ActiveRecord::RecordNotFound  
+    rescue ActiveRecord::RecordNotFound
       flash[:notice] = "Record was not found."
       redirect_to user_activities_path(current_user.id)
       return
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
 
     @activity.update_attributes(activity_params)
 
-    redirect_to user_activities_path(@user.id)
+    redirect_to user_admin_index_path(@user.id)
   end
 
 
