@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <%= simple_form_for [@user, @activity] do |f| %>
         <%= f.input :name, :label => "Experience Name" %>
-        <%= f.input :date, :label => "Experience Date" %>
+        <%= f.input :date, :label => "Experience Date (click on calendar icon)", placeholder: "YYYY-MM-DD", :as => :date_picker %>
         <%= f.input :hours_worked %>
         <%= f.input :notes %>
         <% if current_user.admin? %>
