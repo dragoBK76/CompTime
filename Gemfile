@@ -2,10 +2,12 @@ source 'https://rubygems.org'
  
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.1.0' 
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'devise'
 gem "font-awesome-rails"
 gem 'jbuilder', '~> 2.0' 
 gem 'jquery-rails' 
+gem 'momentjs-rails'
 gem 'pg', '~> 0.15' 
 gem 'rails', '4.2.5' 
 gem 'sass-rails', '~> 5.0' 
