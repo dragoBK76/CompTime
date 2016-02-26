@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,6 +118,8 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nenv (0.2.0)
     nokogiri (1.6.7.2)
@@ -227,11 +238,13 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
+  datetimepicker-rails!
   devise
   font-awesome-rails
   guard-rspec (~> 4.6.4)
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails
   pg (~> 0.15)
   rails (= 4.2.5)
   rspec-rails (~> 3.3.3)
