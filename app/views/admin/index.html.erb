@@ -39,7 +39,7 @@
             <td width="25%"><h4>Hours worked</h4></td>
             <td width="25%"><h4>Edit</h4></td>
           </tr>
-        <% user.activities.order('id DESC').each do |item| %>
+        <% user.activities.order('date DESC').each do |item| %>
           <tr>
             <td width="25%"><%= item.name %></td>
             <td width="25%"><%= item.date.strftime("%m/%d/%y") %></td>

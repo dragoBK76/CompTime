@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @activities = @user.activities.all.order('id DESC')
+    @activities = @user.activities.all.order('date DESC')
 
     if @user.id != current_user.id
       flash[:notice] = "You can't view that."
