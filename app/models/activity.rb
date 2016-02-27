@@ -11,4 +11,8 @@ class Activity < ActiveRecord::Base
       (where(approved: true).sum(:hours_worked) / 8).to_i
     end
   end
+
+  def year
+    self.date.strftime('%Y')
+  end
 end
