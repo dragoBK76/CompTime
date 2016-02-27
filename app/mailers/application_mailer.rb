@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def new_activity_alert(user)
     @user = user
-    @url  = "http://arcomptime.herokuapp.com"
+    @url  = "https://arcomptime.herokuapp.com"
     mail(:to => "kdjs@audiencerewards.com",
          :subject => "#{user.fullname} created a new Comp-Time activity for review.")
     
