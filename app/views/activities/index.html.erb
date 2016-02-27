@@ -7,28 +7,8 @@
     <%= link_to '+ Add an Activity', new_user_activity_path(current_user.id) %>
   </div>
   <div class="row">
-  <table class="table table-striped">
-    <tr>
-      <td>Hours Worked</td>
-      <td>Experience Name</td>
-      <td>Experience Date</td>
-      <td>Approved?</td>
-    </tr>
-    <% @activities.each do |a| %>
-      <tr>
-        <td><%= content_tag(:p, a.hours_worked) %></td>
-        <td><%= content_tag(:p, a.name) %></td>
-        <td><%= content_tag(:p, a.date.strftime("%m/%d/%y")) %></td>
-        <td><p><%= a.approved? ? "Yes" : "No" %></p></td>
-      </tr>
-    <% end %>
-    <tr>
-      <td colspan="4">
-       <%= @activities.sum(:hours_worked) %> Total Hours<br>
-       <%= @activities.approved_hours %> Hours Approved<br>
-       <%= @activities.calc_accrued_days %> Day(s) Accrued
-      </td>
-    </tr>
-  </table>
+
+      <%= render 'activities/activities' %>
+  
   </div>
 </div>

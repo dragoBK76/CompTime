@@ -1,0 +1,27 @@
+<% @activities.group_by(&:year).each do |year, activity| %>
+  <h2>Year: <%= year %></h2>
+  <table class="table table-striped">
+    <tr>
+      <td width="25%">Hours Worked</td>
+      <td width="25%">Experience Name</td>
+      <td width="25%">Experience Date</td>
+      <td width="25%">Approved?</td>
+    </tr>
+    <% @sum = 0 %>
+    <% @approved_sum = 0 %>
+    <% activity.each do |a| %>
+    <tr>
+      <td><%= content_tag(:p, a.hours_worked) %><% @sum = @sum + a.hours_worked %></td>
+      <td><%= content_tag(:p, a.name) %></td>
+      <td><%= content_tag(:p, a.date.strftime("%m/%d/%y")) %></td>
+      <td><p><%= a.approved? ? content_tag(:b,"Yes") : "No" %></p></td>
+      <% a.approved? ? @approved_sum = @approved_sum + a.hours_worked : %>
+    </tr>
+    <% end %>
+    <tr>
+      <td><%= @sum %></td>
+      <td colspan="2"></td>
+      <td><%= content_tag(:b, "#{@approved_sum} Approved Hrs.") %></td>
+    </tr>
+  </table>
+<% end %>
