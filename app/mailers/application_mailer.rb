@@ -6,7 +6,7 @@ class ApplicationMailer < ActionMailer::Base
     @user = user
     @url  = "http://arcomptime.herokuapp.com"
     mail(:to => "kdjs@audiencerewards.com",
-         :subject => "#{user.fullname} created a new activity for review.")
+         :subject => "#{user.fullname} created a new Comp-Time activity for review.")
     
   end
 
