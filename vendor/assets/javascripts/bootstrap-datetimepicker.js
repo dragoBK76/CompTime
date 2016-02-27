@@ -1907,7 +1907,7 @@
         extraFormats: false,
         stepping: 1,
         minDate: false,
-        maxDate: false,
+        maxDate: Date(),
         useCurrent: true,
         collapse: true,
         locale: moment.locale(),
