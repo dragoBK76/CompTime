@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
   belongs_to :user
 
   scope :approved_hours, -> { where(approved: true).sum(:hours_worked) }
+  scope :total_hours, -> { self.sum(:hours_worked)}
   scope :accrued_days, -> { where(approved: true).sum(:hours_worked) / 8}
 
   def self.calc_accrued_days
