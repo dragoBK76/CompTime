@@ -24,7 +24,7 @@
     <td>
       <%= @this_year %>: <%= user.activities.by_year(@this_year).approved_hours %> hours / <%= user.activities.by_year(@this_year).calc_accrued_days %> days<br>
 
-      <%= @this_year - 1 %>: <%= user.activities.by_year(@this_year - 1).approved_hours %> hours / <%= user.activities.by_year(@this_year - 1).calc_accrued_days %>
+      <%= @this_year - 1 %>: <%= user.activities.by_year(@this_year - 1).approved_hours %> hours / <%= user.activities.by_year(@this_year - 1).calc_accrued_days %> days
     </td>
   </tr>
   <% end %>
