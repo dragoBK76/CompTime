@@ -6,6 +6,7 @@ class AdminController < ApplicationController
     else
     @users = User.all
     @this_year = Date.current.year
+    @last_year = @this_year - 1
   end
   end
 end

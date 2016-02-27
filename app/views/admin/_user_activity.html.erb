@@ -13,15 +13,15 @@
       <td width="25%"><h4>Hours worked</h4></td>
       <td width="25%"><h4>Edit</h4></td>
     </tr>
-    <% user.activities.order('date DESC').each do |item| %>
+    <% user.activities.order('date DESC').each do |activity| %>
     <tr>
-      <td width="25%"><%= item.name %></td>
-      <td width="25%"><%= item.date.strftime("%m/%d/%y") %></td>
-      <td width="25%"><%= item.hours_worked %></td>
-      <% if item.approved? %>
-      <td width="25%">Approved / <%= link_to 'edit', edit_user_activity_path(user.id, item.id) %></td>
+      <td width="25%"><%= activity.name %></td>
+      <td width="25%"><%= activity.date.strftime("%m/%d/%y") %></td>
+      <td width="25%"><%= activity.hours_worked %></td>
+      <% if activity.approved? %>
+      <td width="25%">Approved / <%= link_to 'edit', edit_user_activity_path(user.id, activity.id) %></td>
       <% else %>
-      <td width="25%"><%= link_to 'Approve', edit_user_activity_path(user.id, item.id) %></td>
+      <td width="25%"><%= link_to 'Approve', edit_user_activity_path(user.id, activity.id) %></td>
       <% end %>
     </tr>
     <% end %>
