@@ -1,12 +1,12 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "comp-time-alert@audiencerewards.com"
+  default from: "hr@audiencerewards.com"
   layout 'mailer'
 
   def new_activity_alert(user)
-    @user = user.email
-    @url  = "http://example.com/login"
-    mail(:to => "new-comp-alert@audiencerewards.com",
-         :subject => "#{user.fullname} created a new record.")
+    @user = user
+    @url  = "http://arcomptime.herokuapp.com"
+    mail(:to => "kdjs@audiencerewards.com",
+         :subject => "#{user.fullname} created a new activity for review.")
     
   end
 
