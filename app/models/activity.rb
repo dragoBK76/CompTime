@@ -15,4 +15,12 @@ class Activity < ActiveRecord::Base
   def year
     self.date.strftime('%Y')
   end
+
+  def self.by_year(year)
+    dt = DateTime.new(year)
+    boy = dt.beginning_of_year
+    eoy = dt.end_of_year
+    where("date >= ? and date <= ?", boy, eoy)
+  end
+
 end
