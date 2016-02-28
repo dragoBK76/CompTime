@@ -4,6 +4,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.1.0' 
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'devise'
+gem 'figaro'
 gem "font-awesome-rails"
 gem 'jbuilder', '~> 2.0' 
 gem 'jquery-rails' 
