@@ -1,5 +1,6 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
+  after_create :send_admin_alert
 
   scope :approved_hours, -> { where(approved: true).sum(:hours_worked) }
   scope :total_hours, -> { self.sum(:hours_worked)}
@@ -22,6 +23,10 @@ class Activity < ActiveRecord::Base
     boy = dt.beginning_of_year
     eoy = dt.end_of_year
     where("date >= ? and date <= ?", boy, eoy)
+  end
+
+  def send_admin_alert
+    ActivityMailer.new_activity_alert(self.user).deliver
   end
 
 end
