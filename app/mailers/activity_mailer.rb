@@ -1,4 +1,5 @@
 class ActivityMailer < ApplicationMailer
+  default from: "hr@audiencerewards.com"
 
   def new_activity_alert(user)
     @user = user
@@ -7,5 +8,5 @@ class ActivityMailer < ApplicationMailer
          :subject => "#{user.fullname} created a new Comp-Time activity for review.")
     
   end
-  
+
 end

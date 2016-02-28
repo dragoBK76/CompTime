@@ -1,6 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "hr@audiencerewards.com"
-  layout 'mailer'
 
   def new_activity_alert(user)
     @user = user
