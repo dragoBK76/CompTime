@@ -9,7 +9,7 @@ class AlertMailer < ApplicationMailer
     @activity = activity
     @user = @activity.user
     @url  = "https://arcomptime.herokuapp.com"
-    mail(:to => "josh@audiencerewards.com",
+    mail(:to => "kdjs@audiencerewards.com",
          :subject => "#{@user.fullname} created a new Comp-Time activity for review.")
   end
 end
