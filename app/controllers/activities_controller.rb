@@ -27,7 +27,7 @@ class ActivitiesController < ApplicationController
     @activity = @user.activities.new(activity_params)
 
     if @activity.save
-      # ActivityMailer.new_activity_alert(@user).deliver
+      AlertMailer.new_activity(@activity).deliver_now
       redirect_to user_activities_path(@user.id)
 
     else
